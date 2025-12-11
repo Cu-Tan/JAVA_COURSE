@@ -14,12 +14,14 @@ import com.example.lab7.logic.LoanAnnuity;
 import com.example.lab7.logic.LoanLinear;
 import com.example.lab7.ui.DeferralInputFields;
 import com.example.lab7.ui.FilterInputFields;
+import com.example.lab7.ui.Graph;
 import com.example.lab7.ui.LoanInputFields;
 import com.example.lab7.ui.Table;
 
 /**
  * @author Karolis Ribačonka Informatika 2 kursas 2 grupė 2 pogrupis
  */
+
 public class MainActivity extends AppCompatActivity {
 
   @Override
@@ -35,10 +37,12 @@ public class MainActivity extends AppCompatActivity {
     });
 
     table = new Table(this);
+    graph = new Graph(this);
 
     LoanInputFields.init(
       this,
       loanInputData -> {
+
         switch (loanInputData.loanType){
 
           case LINEAR:
@@ -47,9 +51,7 @@ public class MainActivity extends AppCompatActivity {
               loanInputData.loanDuration,
               loanInputData.loanInterest
             );
-            loan.calculate();
-            table.update(loan.getMonthData(), loan.getStartMonth());
-            Log.d("my_tag", "onconfirm");
+
           break;
 
           case ANNUITY:
@@ -60,10 +62,14 @@ public class MainActivity extends AppCompatActivity {
             );
             loan.calculate();
             table.update(loan.getMonthData(), loan.getStartMonth());
-            Log.d("my_tag", "onconfirm");
           break;
 
         }
+
+        loan.calculate();
+        table.update(loan.getMonthData(), loan.getStartMonth());
+        graph.update(loan.getMonthData(), loan.getStartMonth());
+
       }
     );
 
@@ -77,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         loan.setDeferral(deferralData);
         table.update(loan.getMonthData(), loan.getStartMonth());
+        graph.update(loan.getMonthData(), loan.getStartMonth());
 
       },
       () -> {
@@ -87,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         loan.setDeferral(null);
         table.update(loan.getMonthData(), loan.getStartMonth());
+        graph.update(loan.getMonthData(), loan.getStartMonth());
 
       }
     );
@@ -101,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         loan.setFilter(filterData);
         table.update(loan.getMonthData(), loan.getStartMonth());
+        graph.update(loan.getMonthData(), loan.getStartMonth());
 
       },
       () -> {
@@ -111,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
         loan.setFilter(null);
         table.update(loan.getMonthData(), loan.getStartMonth());
+        graph.update(loan.getMonthData(), loan.getStartMonth());
 
       }
 
@@ -119,5 +129,6 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private Table table = null;
+  private Graph graph = null;
   private Loan loan = null;
 }

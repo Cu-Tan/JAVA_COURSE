@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<HorizontalScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:fillViewport="true"
+>
+
+  <TableLayout
+    android:id="@+id/table"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:stretchColumns="*"
+  >
+
+    <TableRow
+      android:gravity="center"
+    >
+      <TextView
+        android:text="Month"
+        android:padding="4dp"
+        android:gravity="center"
+      />
+      <TextView
+        android:text="Loan remainder"
+        android:padding="4dp"
+        android:gravity="center"
+      />
+      <TextView
+        android:text="Monthly payment"
+        android:padding="4dp"
+        android:gravity="center"
+      />
+      <TextView
+        android:text="Interest"
+        android:padding="4dp"
+        android:gravity="center"
+      />
+      <TextView
+        android:text="Credit"
+        android:padding="4dp"
+        android:gravity="center"
+      />
+    </TableRow>
+
+  </TableLayout>
+
+</HorizontalScrollView>

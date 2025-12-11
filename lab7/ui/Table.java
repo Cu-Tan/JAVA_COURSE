@@ -56,8 +56,8 @@ public class Table {
 
   }
 
-  private Activity activity;
-  private TableLayout tableLayout;
+  private final Activity activity;
+  private final TableLayout tableLayout;
 
   private void addRow(
     String month,

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:gravity="center_vertical"
+>
+
+  <include
+    layout="@layout/input_row_text"
+    android:id="@+id/input_row1"
+  />
+  <include
+    layout="@layout/input_row_text"
+    android:id="@+id/input_row2"
+  />
+  <include
+    layout="@layout/input_row_dropdown"
+    android:id="@+id/input_row3"
+  />
+  <include
+    layout="@layout/input_row_text"
+    android:id="@+id/input_row4"
+  />
+
+  <TextView
+    android:id="@+id/error"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Invalid input"
+    android:textColor="#FF0000"
+    android:textSize="16sp"
+    android:visibility="gone"
+    android:textAlignment="center"
+  />
+
+  <Button
+    android:id="@+id/confirm_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Confirm"
+  />
+
+</LinearLayout>
